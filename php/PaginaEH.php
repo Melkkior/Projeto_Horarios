@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Horário - Segunda-feira</title>
-  <link rel="stylesheet" href="css/PaginaEHes.css">
+  <link rel="stylesheet" href="horarios/css/PaginaEHes.css">
 </head>
 <body>
   <div class="container"><center><h1>editar horario</h1></center></div>
