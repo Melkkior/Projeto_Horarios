@@ -2,90 +2,14 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Horário - Segunda-feira (Editável)</title>
-  <style>
-    body {
-      background: #fff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      width: 98%;
-      margin: 15px auto;
-      border: 4px solid #444;
-      border-radius: 10px;
-      background: #fff;
-      box-sizing: border-box;
-      padding-bottom: 18px;
-    }
-    .header {
-      background: #555;
-      color: #fff;
-      font-size: 2.2em;
-      text-align: center;
-      padding: 8px 0 8px 0;
-      letter-spacing: 2px;
-      border-radius: 6px 6px 0 0;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 0 auto;
-      background: #fff;
-    }
-    th, td {
-      border: 2px solid #222;
-      padding: 8px 5px;
-      text-align: center;
-      min-width: 50px;
-      font-size: 1em;
-    }
-    th {
-      background: #388e3c;
-      color: #fff;
-      font-size: 1em;
-      font-weight: bold;
-      border-bottom: 3px solid #222;
-    }
-    .row-title {
-      background: #888;
-      color: #fff;
-      font-weight: bold;
-      border-right: 3px solid #222;
-    }
-    .break {
-      background: #f4b183;
-      color: #222;
-      font-weight: bold;
-    }
-    select {
-      width: 100%;
-      padding: 3px 2px;
-      font-size: 1em;
-      border-radius: 3px;
-      border: 1px solid #aaa;
-      background: #fff;
-    }
-    .footer {
-      margin-top: 15px;
-      background: #e0e0e0;
-      border: 2px solid #444;
-      border-radius: 0 0 8px 8px;
-      padding: 10px;
-      font-size: 1em;
-      color: #222;
-      width: 97%;
-      margin-left: auto;
-      margin-right: auto;
-      box-sizing: border-box;
-    }
-  </style>
+  <title>Horário - Segunda-feira</title>
+  <link rel="stylesheet" href="css/PaginaEHes.css">
 </head>
 <body>
-  <div class="container">
-    <div class="header">segunc</div>
-    <form>
+  <div class="container"><center><h1>editar horario</h1></center></div>
+  <form action="">
+    <div class="container">
+    <div class="header">SEGUNDA</div>
     <table>
       <tr>
         <th></th>
@@ -102,63 +26,205 @@
         <th>15:50</th>
         <th>16:40</th>
       </tr>
-      <!-- Função para gerar linha editável -->
       <!-- ADM 1 -->
       <tr>
         <td class="row-title">ADM 1</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
         <td class="break">---</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
         <td class="break">---</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
         <td class="break">---</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
       </tr>
-      <!-- Copie e cole a linha acima para cada turma, alterando apenas a primeira célula (row-title) -->
-      <!-- Para agilizar, abaixo estão todas as linhas já prontas, basta copiar o conteúdo das células <td> da linha anterior -->
+      <!-- ADM 2 -->
       <tr>
         <td class="row-title">ADM 2</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
         <td class="break">---</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
         <td class="break">---</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
         <td class="break">---</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
       </tr>
+      <!-- ADM 3 -->
       <tr>
         <td class="row-title">ADM 3</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
         <td class="break">---</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
         <td class="break">---</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
         <td class="break">---</td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
-        <td><select><option>TEXTO</option><option>Matemática</option><option>Português</option><option>História</option><option>Geografia</option><option>Biologia</option><option>Química</option><option>Física</option><option>Inglês</option><option>Educação Física</option><option>Artes</option><option>Informática</option><option>Administração</option></select></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
       </tr>
-      <!-- Repita o mesmo padrão para AGRO 1, AGRO 2, AGRO 3, INFO 1, INFO 2, INFO 3, MEIO 1, MEIO 2, MEIO 3 -->
-      <!-- Por questão de espaço, só mostrei ADM 1, 2 e 3. Para as demais linhas, basta copiar as células acima e alterar apenas o nome da turma -->
-      <!-- ... -->
+      <!-- AGRO 1 -->
+      <tr>
+        <td class="row-title">AGRO 1</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+      </tr>
+      <!-- AGRO 2 -->
+      <tr>
+        <td class="row-title">AGRO 2</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+      </tr>
+      <!-- AGRO 3 -->
+      <tr>
+        <td class="row-title">AGRO 3</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+      </tr>
+      <!-- INFO 1 -->
+      <tr>
+        <td class="row-title">INFO 1</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+      </tr>
+      <!-- INFO 2 -->
+      <tr>
+        <td class="row-title">INFO 2</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+      </tr>
+      <!-- INFO 3 -->
+      <tr>
+        <td class="row-title">INFO 3</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+      </tr>
+      <!-- MEIO 1 -->
+      <tr>
+        <td class="row-title">MEIO 1</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+      </tr>
+      <!-- MEIO 2 -->
+      <tr>
+        <td class="row-title">MEIO 2</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+      </tr>
+      <!-- MEIO 3 -->
+      <tr>
+        <td class="row-title">MEIO 3</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+        <td class="break">---</td>
+        <td><input class="input" type="text"></td>
+        <td><input class="input" type="text"></td>
+      </tr>
     </table>
-    </form>
     <div class="footer">
-      Aviso: guilherme
+      AVISO(S): <input class="input" type="text">
     </div>
+    <br>
+    <center><input type="submit" value="Salvar" class="button"></center>
   </div>
+  </form>
 </body>
 </html>
