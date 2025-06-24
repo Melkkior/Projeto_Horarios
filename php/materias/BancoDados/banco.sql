@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS IFAM;
+USE IFAM;
+
+CREATE TABLE IF NOT EXISTS Disciplina (
+    id_disciplina INT NOT NULL AUTO_INCREMENT,
+    nome_disciplina VARCHAR(45),
+    PRIMARY KEY (id_disciplina)
+);
+
+CREATE TABLE IF NOT EXISTS Turma (
+    id_turma INT NOT NULL AUTO_INCREMENT,
+    nome_turma VARCHAR(45),
+    professor VARCHAR(45),
+    PRIMARY KEY (id_turma)
+);
+
+CREATE TABLE IF NOT EXISTS Aula (
+    semana VARCHAR(45),
+    tempo VARCHAR(45),
+    Turma_id_turma INT,
+    Disciplina_id_disciplina INT,
+    FOREIGN KEY (Turma_id_turma) REFERENCES Turma(id_turma),
+    FOREIGN KEY (Disciplina_id_disciplina) REFERENCES Disciplina(id_disciplina)
+);
