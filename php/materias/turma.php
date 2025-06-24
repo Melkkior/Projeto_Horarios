@@ -10,7 +10,7 @@
 <body>
     <div class="corpo">
         <div class="container">
-            <div class="esquerda"><input class="butal" type="button" value="VOLTAR" onclick="location.href="></div>
+            <div class="esquerda"><input class="butal" type="button" value="VOLTAR" onclick="location.href='../PaginaEH.php'"></div>
             <div class="direita"><img src="https://cdn-icons-png.flaticon.com/512/20/20093.png" alt=""></div>
         </div>
 
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="footer">
-                <input type="button" class="botao" value="Cancelar">
+                <input type="button" class="botao" value="Cancelar" onclick="location.href='../PaginaEH.php'">
                 <input type="submit" class="botao" value="Salvar">
             </div>
         </form>
