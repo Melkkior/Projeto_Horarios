@@ -1,0 +1,51 @@
+body{
+    padding: 16px;
+}
+.editado{
+    display: flex;
+    flex-direction: raw;
+    padding: 5px 10px 5px 10px;
+    border: 3px solid black;
+    background-color: #D9D9D9;
+}
+h3{
+    width: 350px;
+}
+.inputtt{
+    width: 100%;
+    background-color: #1E1E1E;
+    color: white;
+    border: 1px solid #1E1E1E;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.voltar{
+    width: 200px;
+    background-color: #4144D8;
+    border-radius: 5px;
+    border: 3px solid #4144D8;
+}
+.carterpie{
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+img{
+    width: 50px;
+}
+.esquerda{
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+.direita{
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}

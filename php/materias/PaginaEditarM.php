@@ -3,23 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>Cadastro de Matérias</title>
+  <link rel="stylesheet" href="css/PaginaEMM.css">
 </head>
 <body>
-  <h2>Cadastro de Matérias</h2>
-  <form action="salvar.php" method="POST" id="formulario">
-    <div id="campos">
-      <div class="box">
-        <label>Matéria: <input type="text" name="materia[]"></label><br>
-        <label>Professor: <input type="text" name="professor[]"></label><br>
-        Curso:
-        <label><input type="radio" name="curso[0]" value="info"> Info</label>
-        <label><input type="radio" name="curso[0]" value="agro"> Agro</label>
-        <label><input type="radio" name="curso[0]" value="meio"> Meio</label>
-        <label><input type="radio" name="curso[0]" value="adm"> Adm</label>
-      </div>
+  <form action="" method="POST" id="formulario">
+  <div class="container">
+    <div class="esquerda"><input class="voltar"type="button" value="VOLTAR" onclick="location.href="></div>
+    <div class="direita"><img src="https://cdn-icons-png.flaticon.com/512/20/20093.png" alt=""></div>
+    
+  </div> <br>
+  <div class="carterpie">
+    <div class="editado">
+      <h3>EDITAR TURMAS:</h3> 
+      <input type="button" class="inputtt" value="EDITAR" onclick="location.href=">
     </div>
-    <button type="button" onclick="adicionarCampo()">+ Adicionar Matéria</button><br>
-    <button type="submit" class="botao">Salvar</button>
+    <div class="editado">
+      <h3>EDITAR DISCIPLINA:</h3> 
+      <input type="button" class="inputtt" value="EDITAR" onclick="location.href=">
+    </div>
+    <div class="editado">
+      <h3>EDITAR AULAS:</h3> 
+      <input type="button" class="inputtt" value="EDITAR" onclick="location.href=">
+    </div>
+  </div>
   </form>
 </body>
 </html>
