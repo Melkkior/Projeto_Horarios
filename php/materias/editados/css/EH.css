@@ -2,18 +2,20 @@ body {
     background: #fff;
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 16px;
 }
 
 .container {
     width: 98%;
     height: 100%;
     margin: 15px auto;
-    border: 4px solid #444;
-    border-radius: 10px;
+    border: 4px solid #000000;
     background: #fff;
     box-sizing: border-box;
     padding-bottom: 18px;
+    width: 100%;            
+    max-width: 100%;       
+    overflow-x: auto;
 }
 
 .header {
@@ -31,6 +33,8 @@ table {
     width: 100%;
     margin: 0 auto;
     background: #fff;
+  table-layout: fixed;
+    
 }
 
 th,
@@ -76,4 +80,51 @@ th {
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
+}
+.input{
+    width: 100%;
+    box-sizing: border-box;
+  display: block;
+}
+.r{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+img{
+    width: 50px;
+}
+.esquerda{
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+.direita{
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+.butal{
+    width: 200px;
+    background-color: #4144D8;
+    border-radius: 5px;
+    border: 3px solid #4144D8;
+    color: white;
+}
+.skibid{
+    display: flex;
+    flex-direction: row;
+}
+.f{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.botao{
+    width: 500px;
+    height: 50px;
+    background-color: #4144D8;
+    color: white;
+    border: 1px solid #4144D8;
+    border-radius: 5px;
 }
