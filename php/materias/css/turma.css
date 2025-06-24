@@ -1,0 +1,103 @@
+.corpo {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+form {
+    background-color: #d2d6e0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 98%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.box {
+    background-color: #edf0f5;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin: 5px 0;
+    width: 98%;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    margin-top: 2px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+button[type="button"] {
+    background-color: transparent;
+    color: #333;
+    font-size: 24px;
+    border: 2px dashed #aaa;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+button[type="button"]:hover {
+    background-color: #d9d9d9;
+}
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.botao{
+    width: 400px;
+    height: 50px;
+    background-color: #4144D8;
+    color: white;
+    border: 1px solid #4144D8;
+    border-radius: 5px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+img{
+    width: 50px;
+}
+.esquerda{
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+.direita{
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+.butal{
+    width: 200px;
+    background-color: #4144D8;
+    border-radius: 5px;
+    border: 3px solid #4144D8;
+    color: white;
+}
+.skibid{
+    display: flex;
+    flex-direction: row;
+}
