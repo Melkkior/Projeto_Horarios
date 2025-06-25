@@ -3,8 +3,10 @@ USE IFAM;
 
 CREATE TABLE IF NOT EXISTS Disciplina (
     id_disciplina INT NOT NULL AUTO_INCREMENT,
+    id_turma INT,
     nome_disciplina VARCHAR(45),
-    PRIMARY KEY (id_disciplina)
+    professor_disciplina VARCHAR(45),
+    PRIMARY KEY (id_disciplina, id_turma)
 );
 
 CREATE TABLE IF NOT EXISTS Turma (
