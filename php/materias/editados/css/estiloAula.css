@@ -1,33 +1,46 @@
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 20px;
-    }
-    .div {
-      background: #fff;
-      padding: 25px;
-      border-radius: 10px;
-      width: 400px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-    .a {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-    .c {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+body {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+.h {
+  background: #c5c2c2;
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.d {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form {
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="time"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}

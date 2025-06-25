@@ -16,6 +16,7 @@
     $result = $conn->query($sql);
     if($result) {
         echo "<script>alert('Turma cadastrada com sucesso!');</script>";
+        echo "<script>location.href='../PaginaEditarM.php';</script>";
     } else {
         echo "<script>alert('Erro ao cadastrar turma: " . $conn->error . "');</script>";
     }}

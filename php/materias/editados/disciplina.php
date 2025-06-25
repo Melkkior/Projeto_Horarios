@@ -13,11 +13,15 @@ if ($conn->connect_error) {
 if (isset($_POST["materia"]) && $_POST["professor"]) {
     $materias = $_POST["materia"];
     $professores = $_POST["professor"];
+    $curso = $_POST["curso"];
+    $sql = "INSERT INTO Disciplina (id_turma, nome_disciplina, professor_disciplina) VALUES ('$curso','$materias', '$professores')";
 
-    $sql = "INSERT INTO Disciplina (nome_disciplina, professor_disciplina) VALUES ('$materias', '$professores')";
+    echo $sql;
+
     $result = $conn->query($sql);
     if ($result) {
         echo "<script>alert('Disciplina cadastrada com sucesso!');</script>";
+        echo "<script>location.href='../PaginaEditarM.php';</script>";
     } else {
         echo "<script>alert('Erro ao cadastrar disciplina: " . $conn->error . "');</script>";
     }
@@ -59,7 +63,7 @@ if (isset($_POST["materia"]) && $_POST["professor"]) {
                         <?php
                                     while ($row = $result->fetch_assoc()) {
                         ?>
-                                        <option value="<?php echo $row['id_turma'];?>"><?php echo $row["ano"]?> - <?php echo $row["nome_turma"]?></option>
+                                        <option value="<?php echo $row['id_turma'];?>"><?php echo $row["ano"]?>º <?php echo $row["nome_turma"]?></option>
                         <?php
                                 }
                         ?>
