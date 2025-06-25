@@ -14,16 +14,16 @@
   </div> <br>
   <div class="carterpie">
     <div class="editado">
-      <h3>EDITAR TURMAS:</h3> 
-      <input type="button" class="inputtt" value="EDITAR" onclick="location.href='editados/turma.php'">
+      <h3>CADASTRAR TURMAS:</h3> 
+      <input type="button" class="inputtt" value="CADASTRAR" onclick="location.href='editados/turma.php'">
     </div>
     <div class="editado">
-      <h3>EDITAR DISCIPLINA:</h3> 
-      <input type="button" class="inputtt" value="EDITAR" onclick="location.href='editados/disciplina.php'">
+      <h3>CADASTRAR DISCIPLINA:</h3> 
+      <input type="button" class="inputtt" value="CADASTRAR" onclick="location.href='editados/disciplina.php'">
     </div>
     <div class="editado">
-      <h3>EDITAR AULAS:</h3> 
-      <input type="button" class="inputtt" value="EDITAR" onclick="location.href='editados/aula.php'">
+      <h3>CADASTRAR AULAS:</h3> 
+      <input type="button" class="inputtt" value="CADASTRAR" onclick="location.href='editados/aula.php'">
     </div>
   </div>
   </form>

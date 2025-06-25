@@ -1,3 +1,25 @@
+<?php
+ if(isset($_POST['materia'])) {
+    $materias = $_POST['materia'];
+    $ano = $_POST['ano'];
+
+    $servidor = "localhost";
+    $usuario = "root";
+    $senha = "alunoifam";
+    $banco = "ifam";
+
+    $conn = new mysqli($servidor, $usuario, $senha, $banco);
+    if($conn->connect_error) {
+        die("Falha na conexão: " . $conn->connect_error);
+    }
+    $sql = "INSERT INTO turma (nome_turma, ano) VALUES ('$materias', '$ano')";
+    $result = $conn->query($sql);
+    if($result) {
+        echo "<script>alert('Turma cadastrada com sucesso!');</script>";
+    } else {
+        echo "<script>alert('Erro ao cadastrar turma: " . $conn->error . "');</script>";
+    }}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,16 +36,16 @@
             <div class="direita"><img src="https://cdn-icons-png.flaticon.com/512/20/20093.png" alt=""></div>
         </div>
 
-        <form action="salvar.php" method="POST" id="formulario">
+        <form action="turma.php" method="POST" id="formulario">
             <h2>Cadastro de Turma</h2>
             <div id="campos">
                 <div class="box">
-                    <label>Turma: <input type="text" name="materia[]"></label>
+                    <label>Turma: <input type="text" name="materia"></label>
                     ano:
                     <div class="skibid">
-                        <label><input type="radio" name="curso[0]" value="info"> 1º ano</label>
-                        <label><input type="radio" name="curso[0]" value="agro"> 2º ano</label>
-                        <label><input type="radio" name="curso[0]" value="meio"> 3º ano</label>
+                        <label><input type="radio" name="ano" value="1"> 1º ano</label>
+                        <label><input type="radio" name="ano" value="2"> 2º ano</label>
+                        <label><input type="radio" name="ano" value="3"> 3º ano</label>
                     </div>
                 </div>
             </div>
