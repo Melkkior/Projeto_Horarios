@@ -57,19 +57,20 @@ if (isset($_POST["materia"]) && $_POST["professor"]) {
                     Curso:
                     <div class="skibid">
                         <?php
-                                if ($result->num_rows > 0) {
-                        ?>
-                                    <select name="curso">   
-                        <?php
-                                    while ($row = $result->fetch_assoc()) {
-                        ?>
-                                        <option value="<?php echo $row['id_turma'];?>"><?php echo $row["ano"]?>º <?php echo $row["nome_turma"]?></option>
-                        <?php
+                        if ($result->num_rows > 0) {
+                            ?>
+                            <select name="curso">
+                                <?php
+                                while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                    <option value="<?php echo $row['id_turma']; ?>"><?php echo $row["ano"] ?>º
+                                        <?php echo $row["nome_turma"] ?></option>
+                                    <?php
                                 }
-                        ?>
-                                    </select>
-                        <?php
-                            } 
+                                ?>
+                            </select>
+                            <?php
+                        }
                         ?>
                         </select>
                     </div>
