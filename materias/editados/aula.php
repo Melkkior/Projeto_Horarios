@@ -11,13 +11,13 @@ if ($conn->connect_error) {
 }
 
 if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplina"])) {
-    $semana = $_POST["semana"];
+    $tempo = $_POST["semana"];
     $curso = $_POST["curso"];
     $disciplina = $_POST["disciplina"];
 
     echo "disciplica: ".$_POST["disciplina"];
 
-    $sql = "INSERT INTO aula (semana, Turma_id_turma, Disciplina_id_disciplina) VALUES ('$semana','$curso', '$disciplina')";
+    $sql = "INSERT INTO aula (semana, Turma_id_turma, Disciplina_id_disciplina, tempo) VALUES ('$semana','$curso', '$disciplina')";
 
     echo $sql;
 
@@ -81,11 +81,11 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
 
 
     <label>Semana:</label><br>
-    <input type="checkbox" name="semana" value="Segunda"> Segunda<br>
-    <input type="checkbox" name="semana" value="Terça"> Terça<br>
-    <input type="checkbox" name="semana" value="Quarta"> Quarta<br>
-    <input type="checkbox" name="semana" value="Quinta"> Quinta<br>
-    <input type="checkbox" name="semana" value="Sexta"> Sexta<br><br>
+    <input type="checkbox" name="semana" value="2"> Segunda<br>
+    <input type="checkbox" name="semana" value="3"> Terça<br>
+    <input type="checkbox" name="semana" value="4"> Quarta<br>
+    <input type="checkbox" name="semana" value="5"> Quinta<br>
+    <input type="checkbox" name="semana" value="6"> Sexta<br><br>
 
 
     <input class="d" type="button" value="Voltar" onclick="location.href='../PaginaEditarM.php'"><br><br>
