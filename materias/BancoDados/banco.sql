@@ -30,3 +30,12 @@ CREATE TABLE Aviso (
     descricao TEXT NOT NULL,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 );
+
+CREATE TABLE tempo (
+
+    id_tempo INT AUTO_INCREMENT PRIMARY KEY,
+    hora_inicio TIME NOT NULL,
+    hora_fim TIME NOT NULL,
+    dia_semana VARCHAR(10) NOT NULL
+
+)

@@ -7,32 +7,32 @@ $banco = "ifam";
 
 $conn = new mysqli($servidor, $usuario, $senha, $banco);
 if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
+  die("Falha na conexão: " . $conn->connect_error);
 }
 
 if (isset($_POST["arroz"]) && isset($_POST["aviso"])) {
-    $aula = $_POST["arroz"];
-    $aviso = $_POST["aviso"];
+  $aula = $_POST["arroz"];
+  $aviso = $_POST["aviso"];
 
-    echo "disciplica: ".$_POST["disciplina"];
+  echo "disciplica: " . $_POST["disciplina"];
 
-    $sql = "INSERT INTO aula (semana, Turma_id_turma, Disciplina_id_disciplina) VALUES ('$semana','$curso', '$disciplina')";
+  $sql = "INSERT INTO aula (semana, Turma_id_turma, Disciplina_id_disciplina) VALUES ('$semana','$curso', '$disciplina')";
 
-    echo $sql;
+  echo $sql;
 
-    $result = $conn->query($sql);
-    if ($result) {
-        echo "<script>alert('aula cadastrada com sucesso!');</script>";
-        echo "<script>location.href='../PaginaEditarM.php';</script>";
-    } else {
-        echo "<script>alert('Erro ao cadastrar aula: " . $conn->error . "');</script>";
-    }
+  $result = $conn->query($sql);
+  if ($result) {
+    echo "<script>alert('aula cadastrada com sucesso!');</script>";
+    echo "<script>location.href='../PaginaEditarM.php';</script>";
+  } else {
+    echo "<script>alert('Erro ao cadastrar aula: " . $conn->error . "');</script>";
+  }
 
 } else {
-    $sqll = "SELECT id_turma, id_disciplina ,nome_disciplina, professor_disciplina FROM Disciplina";
-    $result = $conn->query($sqll);
-    $sql2 = "SELECT id_turma, nome_turma, ano FROM turma";
-    $result2 = $conn->query($sql2);
+  $sqll = "SELECT id_turma, id_disciplina ,nome_disciplina, professor_disciplina FROM Disciplina";
+  $result = $conn->query($sqll);
+  $sql2 = "SELECT id_turma, nome_turma, ano FROM turma";
+  $result2 = $conn->query($sql2);
 }
 ?>
 <!DOCTYPE html>
@@ -46,7 +46,8 @@ if (isset($_POST["arroz"]) && isset($_POST["aviso"])) {
 
 <body>
   <div class="r">
-    <div class="esquerda"><input class="butal" type="button" value="IR PARA TELA DE HORÁRIO" onclick="location.href='horarios/PaginaSegunda.php'">
+    <div class="esquerda"><input class="butal" type="button" value="IR PARA TELA DE HORÁRIO"
+        onclick="location.href='horarios/PaginaSegunda.php'">
     </div>
     <div class="direita"><img src="https://cdn-icons-png.flaticon.com/512/4277/4277132.png" alt=""></div>
   </div>
@@ -71,11 +72,11 @@ if (isset($_POST["arroz"]) && isset($_POST["aviso"])) {
         </tr>
         <!-- ADM 1 -->
         <tr>
-          
+
           <td class="row-title">ADM 1</td>
           <td><select name="arroz" class="input">
 
-          </select></td>
+            </select></td>
           <td><select name="arroz" class="input"></select></td>
           <td class="break">---</td>
           <td><select name="arroz" class="input"></select></td>
@@ -272,9 +273,10 @@ if (isset($_POST["arroz"]) && isset($_POST["aviso"])) {
 
     </div>
     <div class="f">
-      <input type="button" class="botao" value="EDITAR BANCO DE DADOS" onclick="location.href='materias/PaginaEditarM.php'">
+      <input type="button" class="botao" value="EDITAR BANCO DE DADOS"
+        onclick="location.href='materias/PaginaEditarM.php'">
       <input type="submit" class="botao" value="SALVAR ALTERAÇÕES">
-      
+
     </div>
   </form>
 </body>
