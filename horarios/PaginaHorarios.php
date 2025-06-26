@@ -3,17 +3,17 @@ $servidor = "localhost";
 $usuario = "root";
 $senha = "alunoifam";
 $banco = "ifam";
- 
+
 $conn = new mysqli($servidor, $usuario, $senha, $banco);
 if ($conn->connect_error) {
   die("Falha na conexão: " . $conn->connect_error);
 }
- $sqll = "SELECT id_turma, id_disciplina ,nome_disciplina, professor_disciplina FROM Disciplina";
-  $result = $conn->query($sqll);
-  $sql2 = "SELECT id_turma, nome_turma, ano FROM turma";
-  $result2 = $conn->query($sql2);
-  $sql3 = "SELECT descricao FROM aviso";
-  $result3 = $conn->query($sql3);
+$sqll = "SELECT id_turma, id_disciplina ,nome_disciplina, professor_disciplina FROM Disciplina";
+$result = $conn->query($sqll);
+$sql2 = "SELECT id_turma, nome_turma, ano FROM turma";
+$result2 = $conn->query($sql2);
+$sql3 = "SELECT descricao FROM aviso";
+$result3 = $conn->query($sql3);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,31 +26,34 @@ if ($conn->connect_error) {
 
 <body>
   <div class="container">
-    <div class="header"><?php
-    $day = date('l'); 
+    <div class="header">
+      <?php
+      $day = date('l');
 
-switch ($day) {
-  case "Monday":
-    $day = "SEGUNDA";
-    break;
-  case "Tuesday":
-    $day = "TERÇA";
-    break;
-  case "Wednesday":
-    $day = "QUARTA";
-    break;
-  case "Thursday":
-    $day = "QUINTA";
-    break;
-  case "Friday":
-    $day = "SEXTA";
-    break;
-  default:
-    $day = "Dia Desconhecido";
-    break;
-}
+      switch ($day) {
+        case "Monday":
+          $day = "SEGUNDA";
+          break;
+        case "Tuesday":
+          $day = "TERÇA";
+          break;
+        case "Wednesday":
+          $day = "QUARTA";
+          break;
+        case "Thursday":
+          $day = "QUINTA";
+          break;
+        case "Friday":
+          $day = "SEXTA";
+          break;
+        default:
+          $day = "Dia Desconhecido";
+          break;
+      }
 
-echo $day;?></div>
+      echo $day;
+      ?>
+    </div>
     <table>
       <tr>
         <th></th>
@@ -70,7 +73,29 @@ echo $day;?></div>
       <!-- ADM 1 -->
       <tr>
         <td class="row-title">ADM 1</td>
-        <td>PORTUGUES (MARINES) </td>
+        <td><?php
+        $day = date('l');
+        switch ($day) {
+          case "Monday":
+            
+            break;
+          case "Tuesday":
+            echo "PORTUGUES (MARINES) ";
+            break;
+          case "Wednesday":
+            echo "PORTUGUES (MARINES) ";
+            break;
+          case "Thursday":
+            echo "PORTUGUES (MARINES) ";
+            break;
+          case "Friday":
+            echo "PORTUGUES (MARINES) ";
+            break;
+          default:
+            echo "Dia Desconhecido";
+            break;
+        }
+        ?></td>
         <td>PORTUGUES (MARINES) </td>
         <td class="break">---</td>
         <td>PORTUGUES (MARINES) </td>
@@ -261,13 +286,14 @@ echo $day;?></div>
       </tr>
     </table>
     <div class="footer">
-<h5>AVISO: </h5>
-  <?php
-  while ($row = mysqli_fetch_assoc($result3)) {
-        echo "<p>".$row['descricao']."</p>";
-    }
-  ?>
+      <h5>AVISO: </h5>
+      <?php
+      while ($row = mysqli_fetch_assoc($result3)) {
+        echo "<p>" . $row['descricao'] . "</p>";
+      }
+      ?>
     </div>
   </div>
 </body>
+
 </html>

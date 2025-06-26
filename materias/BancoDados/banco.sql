@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS Disciplina (
 
 CREATE TABLE IF NOT EXISTS Turma (
     id_turma INT NOT NULL AUTO_INCREMENT,
-    nome_turma VARCHAR(45),
+    nome_turma VARCHAR(5),
     ano INT,
     PRIMARY KEY (id_turma)
 );

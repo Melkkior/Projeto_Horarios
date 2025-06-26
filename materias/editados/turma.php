@@ -41,7 +41,7 @@
             <h2>Cadastro de Turma</h2>
             <div id="campos">
                 <div class="box">
-                    <label>Turma: <input type="text" name="materia"></label>
+                    <label>Turma: (apenas a sigla do curso) <input type="text" maxlength="5" name="materia"></label>
                     ano:
                     <div class="skibid">
                         <label><input type="radio" name="ano" value="1"> 1º ano</label>
