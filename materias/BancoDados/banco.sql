@@ -18,16 +18,15 @@ CREATE TABLE IF NOT EXISTS Turma (
 
 CREATE TABLE IF NOT EXISTS Aula (
     semana VARCHAR(45),
-    Turma_id_turma INT,
+    id_turma INT,
     tempo INT,
     Disciplina_id_disciplina INT,
-    FOREIGN KEY (Turma_id_turma) REFERENCES Turma(id_turma),
+    FOREIGN KEY (id_turma) REFERENCES Turma(id_turma),
     FOREIGN KEY (Disciplina_id_disciplina) REFERENCES Disciplina(id_disciplina)
 );
 
-CREATE TABLE Aviso (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(100) NOT NULL,
-    descricao TEXT NOT NULL,
-    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+CREATE TABLE  IF NOT EXISTS Aviso (
+    id_aviso INT AUTO_INCREMENT,
+    descricao VARCHAR(700),
+    PRIMARY KEY (id_aviso)
 );

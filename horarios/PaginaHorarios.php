@@ -3,7 +3,7 @@ $servidor = "localhost";
 $usuario = "root";
 $senha = "alunoifam";
 $banco = "ifam";
-
+ 
 $conn = new mysqli($servidor, $usuario, $senha, $banco);
 if ($conn->connect_error) {
   die("Falha na conexão: " . $conn->connect_error);
@@ -12,19 +12,45 @@ if ($conn->connect_error) {
   $result = $conn->query($sqll);
   $sql2 = "SELECT id_turma, nome_turma, ano FROM turma";
   $result2 = $conn->query($sql2);
+  $sql3 = "SELECT descricao FROM aviso";
+  $result3 = $conn->query($sql3);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
-  <title>Horário - Segunda-feira</title>
+  <title>Horários</title>
   <link rel="stylesheet" href="css/PaginaHes.css">
 </head>
 
 <body>
   <div class="container">
-    <div class="header">SEGUNDA</div>
+    <div class="header"><?php
+    $day = date('l'); 
+
+switch ($day) {
+  case "Monday":
+    $day = "SEGUNDA";
+    break;
+  case "Tuesday":
+    $day = "TERÇA";
+    break;
+  case "Wednesday":
+    $day = "QUARTA";
+    break;
+  case "Thursday":
+    $day = "QUINTA";
+    break;
+  case "Friday":
+    $day = "SEXTA";
+    break;
+  default:
+    $day = "Dia Desconhecido";
+    break;
+}
+
+echo $day;?></div>
     <table>
       <tr>
         <th></th>
@@ -235,12 +261,13 @@ if ($conn->connect_error) {
       </tr>
     </table>
     <div class="footer">
-      Aviso: Lion El'Jonson stalks from mist-wreathed shadow realms like an ancient questing knight, hunting the
-      galaxy's myriad terrors. With his immense blade, Fealty, the Primarch cleaves apart the most heinous of
-      monstrosities, while the Emperor's Shield erupts in blazes of light and force in response to his foes' savage
-      blows.
+<h5>AVISO: </h5>
+  <?php
+  while ($row = mysqli_fetch_assoc($result3)) {
+        echo "<p>".$row['descricao']."</p>";
+    }
+  ?>
     </div>
   </div>
 </body>
-
 </html>
