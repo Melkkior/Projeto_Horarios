@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Cadastro de Matérias</title>
-  <link rel="stylesheet" href="editados/css/PaginaEMM.css">
+  <link rel="stylesheet" href="materias/editados/css/PaginaEMM.css">
 </head>
 <body>
   <form action="" method="POST" id="formulario">
@@ -24,6 +24,10 @@
     <div class="editado">
       <h3>CADASTRAR AULAS:</h3> 
       <input type="button" class="inputtt" value="CADASTRAR" onclick="location.href='editados/aula.php'">
+    </div>
+    <div class="aviso">
+      <h3>AVISO:</h3> 
+      <input type="text">
     </div>
   </div>
   </form>
