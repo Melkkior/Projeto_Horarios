@@ -4,16 +4,82 @@ $usuario = "root";
 $senha = "alunoifam";
 $banco = "ifam";
 
+
+
+$day = date('l');
+
+switch ($day) {
+  case "Monday":
+
+    $dayn = 2;
+    break;
+  case "Tuesday":
+
+    $dayn = 3;
+    break;
+  case "Wednesday":
+
+    $dayn = 4;
+    break;
+  case "Thursday":
+
+    $dayn = 5;
+    break;
+  case "Friday":
+
+    $dayn = 6;
+    break;
+  default:
+    $dayn = 0; 
+    break;
+}
+
 $conn = new mysqli($servidor, $usuario, $senha, $banco);
 if ($conn->connect_error) {
   die("Falha na conexão: " . $conn->connect_error);
 }
-$sqll = "SELECT id_turma, id_disciplina ,nome_disciplina, professor_disciplina FROM Disciplina";
+
+$sqll = " select b.nome_turma, a.tempo, a.semana, c.nome_disciplina, c.professor_disciplina " .
+  " from aula a, turma b, disciplina c" .
+  " where a.id_turma = b.id_turma" .
+  " and   a.Disciplina_id_disciplina = c.id_disciplina" .
+  " and   a.semana = '" . $dayn . "'" .
+  " ORDER by tempo";
 $result = $conn->query($sqll);
-$sql2 = "SELECT id_turma, nome_turma, ano FROM turma";
-$result2 = $conn->query($sql2);
+
 $sql3 = "SELECT descricao FROM aviso";
 $result3 = $conn->query($sql3);
+
+//15/05/2025 ultimo dia da primeira parte
+
+$cursos = array();
+for ($i = 0; $i < 12; $i++) {
+  $id = $i+1;
+
+  $turmas = "SELECT nome_turma, ano FROM turma WHERE id_turma = $id";
+  $resultado = $conn->query($turmas);
+
+  if ($resultado && $resultado->num_rows > 0) {
+    $row = $resultado->fetch_assoc();
+    $cursos[$i] = $row['ano'] . "ª " . $row['nome_turma'];
+  } else{
+    $cursos[$i] = " ";
+  }
+}
+$tempo1 = array();
+for ($i = 0; $i < 12; $i++) {
+  $id = $i+1;
+
+  $turmas = "SELECT nome_turma, ano FROM aula WHERE id_turma = $id";
+  $resultado = $conn->query($turmas);
+
+  if ($resultado && $resultado->num_rows > 0) {
+    $row = $resultado->fetch_assoc();
+    $cursos[$i] = $row['ano'] . "ª " . $row['nome_turma'];
+  } else{
+    $cursos[$i] = " ";
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,30 +94,27 @@ $result3 = $conn->query($sql3);
   <div class="container">
     <div class="header">
       <?php
-      $day = date('l');
-
       switch ($day) {
         case "Monday":
-          $day = "SEGUNDA";
+          echo "SEGUNDA";
           break;
         case "Tuesday":
-          $day = "TERÇA";
+          echo "TERÇA";
           break;
         case "Wednesday":
-          $day = "QUARTA";
+          echo "QUARTA";
           break;
         case "Thursday":
-          $day = "QUINTA";
+          echo "QUINTA";
           break;
         case "Friday":
-          $day = "SEXTA";
+          echo "SEXTA";
           break;
         default:
-          $day = "Dia Desconhecido";
+          echo "FIM DE SEMANA";
           break;
       }
-
-      echo $day;
+      ;
       ?>
     </div>
     <table>
@@ -72,226 +135,238 @@ $result3 = $conn->query($sql3);
       </tr>
       <!-- ADM 1 -->
       <tr>
-        <td class="row-title">ADM 1</td>
-        <td><?php
-        $day = date('l');
-        switch ($day) {
-          case "Monday":
-            
-            break;
-          case "Tuesday":
-            echo "PORTUGUES (MARINES) ";
-            break;
-          case "Wednesday":
-            echo "PORTUGUES (MARINES) ";
-            break;
-          case "Thursday":
-            echo "PORTUGUES (MARINES) ";
-            break;
-          case "Friday":
-            echo "PORTUGUES (MARINES) ";
-            break;
-          default:
-            echo "Dia Desconhecido";
-            break;
-        }
-        ?></td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title">
+          <?php
+          echo $cursos[0];
+          ?>
+        </td>
+        <td></td>
+        <td></td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
-      <!-- ADM 2 -->
       <tr>
-        <td class="row-title">ADM 2</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title">
+        <?php
+          echo $cursos[1];
+          ?>
+        </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
-      <!-- ADM 3 -->
       <tr>
-        <td class="row-title">ADM 3</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title">
+          <?php
+          echo $cursos[2];
+          ?>
+        </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
-      <!-- AGRO 1 -->
       <tr>
-        <td class="row-title">AGRO 1</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title">
+          <?php
+          echo $cursos[3];
+          ?>
+        </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
-      <!-- AGRO 2 -->
       <tr>
-        <td class="row-title">AGRO 2</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title">
+          <?php
+          echo $cursos[4];
+          ?>
+        </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
-      <!-- AGRO 3 -->
       <tr>
-        <td class="row-title">AGRO 3</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title">
+          <?php
+          echo $cursos[5];
+          ?>
+        </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
-      <!-- INFO 1 -->
       <tr>
-        <td class="row-title">INFO 1</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title">
+          <?php
+          echo $cursos[6];
+          ?>
+        </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
-      <!-- INFO 2 -->
       <tr>
-        <td class="row-title">INFO 2</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title">
+          <?php
+          echo $cursos[7];
+          ?>
+        </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
-      <!-- INFO 3 -->
       <tr>
-        <td class="row-title">INFO 3</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title">
+          <?php
+          echo $cursos[8];
+          ?>
+        </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
-      <!-- MEIO 1 -->
       <tr>
-        <td class="row-title">MEIO 1</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title"><?php
+          echo $cursos[9];
+          ?></td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
-      <!-- MEIO 2 -->
       <tr>
-        <td class="row-title">MEIO 2</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title">
+          <?php
+          echo $cursos[10];
+          ?>
+        </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
-      <!-- MEIO 3 -->
       <tr>
-        <td class="row-title">MEIO 3</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td class="row-title">
+          <?php
+          echo $cursos[11];
+          ?>
+        </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
         <td class="break">---</td>
-        <td>PORTUGUES (MARINES) </td>
-        <td>PORTUGUES (MARINES) </td>
+        <td> </td>
+        <td> </td>
       </tr>
     </table>
     <div class="footer">
-      <h5>AVISO: </h5>
-      <?php
+      <h5>AVISO:<?php
       while ($row = mysqli_fetch_assoc($result3)) {
         echo "<p>" . $row['descricao'] . "</p>";
       }
-      ?>
+      ?></h5>
     </div>
   </div>
 </body>

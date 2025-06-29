@@ -11,13 +11,14 @@ if ($conn->connect_error) {
 }
 
 if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplina"])) {
-    $tempo = $_POST["semana"];
+    $semana = $_POST["semana"];
     $curso = $_POST["curso"];
     $disciplina = $_POST["disciplina"];
+    $tempo = $_POST["tempo"];
 
     echo "disciplica: ".$_POST["disciplina"];
 
-    $sql = "INSERT INTO aula (semana, Turma_id_turma, Disciplina_id_disciplina, tempo) VALUES ('$semana','$curso', '$disciplina')";
+    $sql = "INSERT INTO aula (tempo, semana, id_turma, Disciplina_id_disciplina) VALUES ('$tempo','$semana','$curso', '$disciplina')";
 
     echo $sql;
 
@@ -78,7 +79,9 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
     }
     ?>
     </select><br><br>
-
+    <select id="tempo" name="tempo">
+      <option value="1">1ª: 7:10-8:00</option>
+    </select><br><br>
 
     <label>Semana:</label><br>
     <input type="checkbox" name="semana" value="2"> Segunda<br>
@@ -88,7 +91,7 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
     <input type="checkbox" name="semana" value="6"> Sexta<br><br>
 
 
-    <input class="d" type="button" value="Voltar" onclick="location.href='../PaginaEditarM.php'"><br><br>
+    <input class="d" type="button" value="Voltar" onclick="location.href='../../PaginaEditarM.php'"><br><br>
     <input class="d" type="submit" value="Cadastrar Aula">
   </form>
 

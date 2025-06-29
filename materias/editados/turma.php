@@ -33,7 +33,7 @@
 <body>
     <div class="corpo">
         <div class="container">
-            <div class="esquerda"><input class="butal" type="button" value="VOLTAR" onclick="location.href='../PaginaEditarM.php'"></div>
+            <div class="esquerda"><input class="butal" type="button" value="VOLTAR" onclick="location.href='../../PaginaEditarM.php'"></div>
             <div class="direita"><img src="https://cdn-icons-png.flaticon.com/512/20/20093.png" alt=""></div>
         </div>
 
