@@ -77,7 +77,7 @@ if (isset($_POST["materia"]) && $_POST["professor"]) {
                 </div>
             </div>
             <div class="footer">
-                <input type="button" class="botao" value="Cancelar" onclick="location.href='../PaginaEH.php'">
+                <input type="button" class="botao" value="Cancelar" onclick="location.href='../../PaginaEditarM.php'">
                 <input type="submit" class="botao" value="Salvar">
             </div>
         </form>

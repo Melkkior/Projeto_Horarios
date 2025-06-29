@@ -84,11 +84,11 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
     </select><br><br>
 
     <label>Semana:</label><br>
-    <input type="checkbox" name="semana" value="2"> Segunda<br>
-    <input type="checkbox" name="semana" value="3"> Terça<br>
-    <input type="checkbox" name="semana" value="4"> Quarta<br>
-    <input type="checkbox" name="semana" value="5"> Quinta<br>
-    <input type="checkbox" name="semana" value="6"> Sexta<br><br>
+    <input type="radio" name="semana" value="segunda"> Segunda<br>
+    <input type="radio" name="semana" value="terca"> Terça<br>
+    <input type="radio" name="semana" value="quarta"> Quarta<br>
+    <input type="radio" name="semana" value="quinta"> Quinta<br>
+    <input type="radio" name="semana" value="sexta"> Sexta<br><br>
 
 
     <input class="d" type="button" value="Voltar" onclick="location.href='../../PaginaEditarM.php'"><br><br>

@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS Turma (
 );
 
 CREATE TABLE IF NOT EXISTS Aula (
-    semana VARCHAR(45),
+    dia VARCHAR(45),
     id_turma INT,
     tempo INT,
     Disciplina_id_disciplina INT,

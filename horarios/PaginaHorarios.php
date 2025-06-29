@@ -67,17 +67,16 @@ for ($i = 0; $i < 12; $i++) {
   }
 }
 $tempo1 = array();
+
 for ($i = 0; $i < 12; $i++) {
   $id = $i+1;
-
-  $turmas = "SELECT nome_turma, ano FROM aula WHERE id_turma = $id";
+  $aula = "SELECT id_turma, dia, tempo, Disciplina_id_disciplina  FROM aula WHERE id_turma = $id";
   $resultado = $conn->query($turmas);
 
-  if ($resultado && $resultado->num_rows > 0) {
-    $row = $resultado->fetch_assoc();
-    $cursos[$i] = $row['ano'] . "ª " . $row['nome_turma'];
-  } else{
-    $cursos[$i] = " ";
+  switch($row['dia']){
+    case "segunda":
+      echo "receba";
+      break;
   }
 }
 ?>
