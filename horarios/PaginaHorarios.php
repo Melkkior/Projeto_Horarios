@@ -30,7 +30,7 @@ switch ($day) {
     $dayn = 6;
     break;
   default:
-    $dayn = 0; 
+    $dayn = 0;
     break;
 }
 
@@ -39,11 +39,11 @@ if ($conn->connect_error) {
   die("Falha na conexão: " . $conn->connect_error);
 }
 
-$sqll = " select b.nome_turma, a.tempo, a.semana, c.nome_disciplina, c.professor_disciplina " .
+$sqll = " select b.nome_turma, a.tempo, a.dia, c.nome_disciplina, c.professor_disciplina " .
   " from aula a, turma b, disciplina c" .
   " where a.id_turma = b.id_turma" .
   " and   a.Disciplina_id_disciplina = c.id_disciplina" .
-  " and   a.semana = '" . $dayn . "'" .
+  " and   a.dia = '" . $dayn . "'" .
   " ORDER by tempo";
 $result = $conn->query($sqll);
 
@@ -54,7 +54,7 @@ $result3 = $conn->query($sql3);
 
 $cursos = array();
 for ($i = 0; $i < 12; $i++) {
-  $id = $i+1;
+  $id = $i + 1;
 
   $turmas = "SELECT nome_turma, ano FROM turma WHERE id_turma = $id";
   $resultado = $conn->query($turmas);
@@ -62,22 +62,58 @@ for ($i = 0; $i < 12; $i++) {
   if ($resultado && $resultado->num_rows > 0) {
     $row = $resultado->fetch_assoc();
     $cursos[$i] = $row['ano'] . "ª " . $row['nome_turma'];
-  } else{
+  } else {
     $cursos[$i] = " ";
   }
 }
 $tempo1 = array();
 
 for ($i = 0; $i < 12; $i++) {
-  $id = $i+1;
-  $aula = "SELECT id_turma, dia, tempo, Disciplina_id_disciplina  FROM aula WHERE id_turma = $id";
-  $resultado = $conn->query($turmas);
+    $id = $i + 1;
+    
+    $sql = "SELECT a.id_turma, a.dia, a.tempo, 
+                   d.nome_disciplina, d.professor_disciplina 
+            FROM aula a
+            JOIN disciplina d ON a.Disciplina_id_disciplina = d.id_disciplina
+            WHERE a.id_turma = $id";
+    
+    $resultado = $conn->query($sql);
 
-  switch($row['dia']){
-    case "segunda":
-      echo "receba";
-      break;
-  }
+    $tempo1[$i] = ""; // Inicializa vazio
+
+    if ($resultado && $resultado->num_rows > 0) {
+        while ($row = $resultado->fetch_assoc()) {
+          $tem = $row['tempo']
+          if ($tem == 1){
+              $dias = $row['dia'];
+          switch($dias){
+            case "segunda":
+            $tempo1[$i] .= $row['nome_disciplina'] . " (" . $row['professor_disciplina'] . ")";
+          break;
+          case "terca":
+            $tempo1[$i] .= $row['nome_disciplina'] . " (" . $row['professor_disciplina'] . ")";
+          break;
+          case "quarta":
+            $tempo1[$i] .= $row['nome_disciplina'] . " (" . $row['professor_disciplina'] . ")";
+          break;
+          case "quinta":
+            $tempo1[$i] .= $row['nome_disciplina'] . " (" . $row['professor_disciplina'] . ")";
+          break;
+          case "sexta":
+            $tempo1[$i] .= $row['nome_disciplina'] . " (" . $row['professor_disciplina'] . ")";
+          break;
+            default:
+             $tempo1[$i] = "Nenhuma aula na segunda";
+            break;
+          }
+          }
+          
+            
+        }
+        
+            
+        
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -139,7 +175,9 @@ for ($i = 0; $i < 12; $i++) {
           echo $cursos[0];
           ?>
         </td>
-        <td></td>
+        <td><?php
+          echo $tempo1[0];
+          ?></td>
         <td></td>
         <td class="break">---</td>
         <td> </td>
@@ -154,11 +192,13 @@ for ($i = 0; $i < 12; $i++) {
       </tr>
       <tr>
         <td class="row-title">
-        <?php
+          <?php
           echo $cursos[1];
           ?>
         </td>
-        <td> </td>
+        <td><?php
+          echo $tempo1[1];
+          ?></td></td>
         <td> </td>
         <td class="break">---</td>
         <td> </td>
@@ -177,7 +217,9 @@ for ($i = 0; $i < 12; $i++) {
           echo $cursos[2];
           ?>
         </td>
-        <td> </td>
+        <td> <?php
+          echo $tempo1[2];
+          ?></td></td>
         <td> </td>
         <td class="break">---</td>
         <td> </td>
@@ -306,8 +348,8 @@ for ($i = 0; $i < 12; $i++) {
       </tr>
       <tr>
         <td class="row-title"><?php
-          echo $cursos[9];
-          ?></td>
+        echo $cursos[9];
+        ?></td>
         <td> </td>
         <td> </td>
         <td class="break">---</td>

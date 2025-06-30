@@ -18,7 +18,7 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
 
     echo "disciplica: ".$_POST["disciplina"];
 
-    $sql = "INSERT INTO aula (tempo, semana, id_turma, Disciplina_id_disciplina) VALUES ('$tempo','$semana','$curso', '$disciplina')";
+    $sql = "INSERT INTO aula (tempo, dia, id_turma, Disciplina_id_disciplina) VALUES ('$tempo','$semana','$curso', '$disciplina')";
 
     echo $sql;
 
