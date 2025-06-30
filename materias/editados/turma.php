@@ -16,7 +16,7 @@
     $result = $conn->query($sql);
     if($result) {
         echo "<script>alert('Turma cadastrada com sucesso!');</script>";
-        echo "<script>location.href='../PaginaEditarM.php';</script>";
+        echo "<script>location.href='../../PaginaEditarM.php';</script>";
     } else {
         echo "<script>alert('Erro ao cadastrar turma: " . $conn->error . "');</script>";
     }}
@@ -31,6 +31,7 @@
 </head>
 
 <body>
+    
     <div class="corpo">
         <div class="container">
             <div class="esquerda"><input class="butal" type="button" value="VOLTAR" onclick="location.href='../../PaginaEditarM.php'"></div>
@@ -39,9 +40,22 @@
 
         <form action="turma.php" method="POST" id="formulario">
             <h2>Cadastro de Turma</h2>
+
+   <script>
+  document.getElementById('formulario').addEventListener('submit', function (e) {
+    const checkboxes = document.querySelectorAll('input[name="ano"]');
+    const algumMarcado = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+    if (!algumMarcado) {
+      e.preventDefault(); // Impede envio
+      alert('Por favor, selecione o ano da turma.');
+    }
+  });
+</script>
+
             <div id="campos">
                 <div class="box">
-                    <label>Turma: (apenas a sigla do curso) <input type="text" maxlength="5" name="materia"></label>
+                    <label>Turma: (apenas a sigla do curso) <input type="text" maxlength="5" name="materia" required ></label>
                     ano:
                     <div class="skibid">
                         <label><input type="radio" name="ano" value="1"> 1º ano</label>

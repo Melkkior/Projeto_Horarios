@@ -21,7 +21,7 @@ if (isset($_POST["materia"]) && $_POST["professor"]) {
     $result = $conn->query($sql);
     if ($result) {
         echo "<script>alert('Disciplina cadastrada com sucesso!');</script>";
-        echo "<script>location.href='../PaginaEditarM.php';</script>";
+        echo "<script>location.href='../../PaginaEditarM.php';</script>";
     } else {
         echo "<script>alert('Erro ao cadastrar disciplina: " . $conn->error . "');</script>";
     }
@@ -52,14 +52,14 @@ if (isset($_POST["materia"]) && $_POST["professor"]) {
             <h2>Cadastro de Disciplina</h2>
             <div id="campos">
                 <div class="box">
-                    <label>Disciplina: <input type="text" name="materia"></label>
-                    <label>Professor: <input type="text" name="professor"></label>
+                    <label>Disciplina: <input type="text" name="materia" required></label>
+                    <label>Professor: <input type="text" name="professor" required></label>
                     Curso:
                     <div class="skibid">
                         <?php
                         if ($result->num_rows > 0) {
                             ?>
-                            <select name="curso">
+                            <select name="curso" required>
                                 <?php
                                 while ($row = $result->fetch_assoc()) {
                                     ?>

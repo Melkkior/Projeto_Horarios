@@ -25,7 +25,7 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
     $result = $conn->query($sql);
     if ($result) {
         echo "<script>alert('aula cadastrada com sucesso!');</script>";
-        echo "<script>location.href='../PaginaEditarM.php';</script>";
+        echo "<script>location.href='../../PaginaEditarM.php';</script>";
     } else {
         echo "<script>alert('Erro ao cadastrar aula: " . $conn->error . "');</script>";
     }
@@ -49,26 +49,28 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
 
 <body>
 
-  <form class="h" action="aula.php" method="post">
-    <h1>Cadastro de Aula</h1>
-    <label>Disciplina:</label>
-    <select id="disciplina" name="disciplina">
-      <?php
-      if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-          echo "<option value='" . $row['id_disciplina'] . "'>" . $row['nome_disciplina'] . " - " . $row['professor_disciplina'] . "</option>";
-        }
-      } else {
-        echo "<option value=''>Nenhuma disciplina cadastrada</option>";
-      }
-      ?>
-    </select><br><br>
+  <form class="h" action="aula.php" method="post" id="a">
 
-    <label for="turma">Turma:</label>
+ <script>
+  document.getElementById('a').addEventListener('submit', function (e) {
+    const checkboxes = document.querySelectorAll('input[name="semana"]');
+    const algumMarcado = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+    if (!algumMarcado) {
+      e.preventDefault(); // Impede envio
+      alert('Por favor, selecione o dia em que dia haverá a aula.');
+    }
+  });
+</script>
+
+
+    <h1>Cadastro de Aula</h1>
+
+     <label for="turma">Turma:</label>
     <?php
     if ($result->num_rows > 0) {
       ?>
-      <select name="curso">
+      <select name="curso" required>
         <?php
         while ($row = $result2->fetch_assoc()) {
           echo "<option value='" . $row['id_turma'] . "'>" . $row['nome_turma'] . " - " . $row['ano'] . "</option>";
@@ -79,8 +81,29 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
     }
     ?>
     </select><br><br>
-    <select id="tempo" name="tempo">
+    <label>Disciplina:</label>
+    <select id="disciplina" name="disciplina" required>
+      <?php
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          echo "<option value='" . $row['id_disciplina'] . "'>" . $row['nome_disciplina'] . " - " . $row['professor_disciplina'] . "</option>";
+        }
+      } else {
+        echo "<option value=''>Nenhuma disciplina cadastrada</option>";
+      }
+      ?>
+    </select><br><br>
+  <label>Horários tempo </label>
+    <select id="tempo" name="tempo" required>
       <option value="1">1ª: 7:10-8:00</option>
+      <option value="2">2ª: 8:00-8:50</option>
+      <option value="3">3ª: 9:10-10:00</option>
+      <option value="4">4ª: 10:00-10:50</option>
+      <option value="5">5ª: 10:50-11:40</option>
+      <option value="6">6ª: 13:00-13:50</option>
+      <option value="7">7ª: 13:50-14:40</option>
+      <option value="8">8ª: 15:00-15:50</option>
+      <option value="9">9ª: 15:50-16:40</option>
     </select><br><br>
 
     <label>Semana:</label><br>
