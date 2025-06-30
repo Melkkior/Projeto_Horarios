@@ -10,7 +10,25 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
+
+if ($_POST["b"]) {
+
+    $sql = 'select id_disciplina, nome_disciplina from aula where id_turma = '.$_POST["curso"];
+    $result = $conn->query($sql);
+    
+};
+
+
+
 if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplina"])) {
+
+  echo "valor de B:".$_POST["curso"]; 
+
+  if($_POST["b"] == '1') {
+      $sql = 'select id_disciplina, nome_disciplina from aula where id_turma = '.$_POST["curso"];
+      echo "teste:".$sql;
+  }
+
     $semana = $_POST["semana"];
     $curso = $_POST["curso"];
     $disciplina = $_POST["disciplina"];
@@ -49,20 +67,30 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
 
 <body>
 
-  <form class="h" action="aula.php" method="post" id="a">
-
  <script>
   document.getElementById('a').addEventListener('submit', function (e) {
     const checkboxes = document.querySelectorAll('input[name="semana"]');
     const algumMarcado = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
     if (!algumMarcado) {
-      e.preventDefault(); // Impede envio
+      e.preventDefault(); 
       alert('Por favor, selecione o dia em que dia haverá a aula.');
     }
   });
+
+  function buscarTurmapordisciplina() {
+      document.getElementById('b').value="1";
+      document.getElementById('a').method = "post";
+      document.getElementById('a').action = "aula.php";
+      document.getElementById('a').submit();
+        
+  }
 </script>
 
+<form class="h" action="aula.php" method="post" id="a">
+
+
+    <input type="hidden" id="b" name="b" value="">
 
     <h1>Cadastro de Aula</h1>
 
@@ -70,12 +98,15 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
     <?php
     if ($result->num_rows > 0) {
       ?>
-      <select name="curso" required>
+
+
+      <select name="curso" required onchange="buscarTurmapordisciplina();">
         <?php
         while ($row = $result2->fetch_assoc()) {
           echo "<option value='" . $row['id_turma'] . "'>" . $row['nome_turma'] . " - " . $row['ano'] . "</option>";
         }
         ?>
+
       </select>
       <?php
     }
