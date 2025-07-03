@@ -5,29 +5,14 @@ $usuario = "root";
 $senha = "alunoifam";
 $banco = "ifam";
 
+$curso="";
+
 $conn = new mysqli($servidor, $usuario, $senha, $banco);
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-
-if ($_POST["b"]) {
-
-    $sql = 'select id_disciplina, nome_disciplina from aula where id_turma = '.$_POST["curso"];
-    $result = $conn->query($sql);
-    
-};
-
-
-
 if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplina"])) {
-
-  echo "valor de B:".$_POST["curso"]; 
-
-  if($_POST["b"] == '1') {
-      $sql = 'select id_disciplina, nome_disciplina from aula where id_turma = '.$_POST["curso"];
-      echo "teste:".$sql;
-  }
 
     $semana = $_POST["semana"];
     $curso = $_POST["curso"];
@@ -49,8 +34,14 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
     }
 
 } else {
+  if (isset($_POST["b"])) {
+    $curso = $_POST["curso"];
+    $sql = 'select id_turma, id_disciplina ,nome_disciplina, professor_disciplina from Disciplina where id_turma = '.$_POST["curso"];
+    $result = $conn->query($sql);
+   } else {
     $sqll = "SELECT id_turma, id_disciplina ,nome_disciplina, professor_disciplina FROM Disciplina";
     $result = $conn->query($sqll);
+    }
     $sql2 = "SELECT id_turma, nome_turma, ano FROM turma";
     $result2 = $conn->query($sql2);
 }
@@ -96,14 +87,19 @@ if (isset($_POST["semana"]) && isset($_POST["curso"]) && isset($_POST["disciplin
 
      <label for="turma">Turma:</label>
     <?php
-    if ($result->num_rows > 0) {
+    if ($result2->num_rows > 0) {
       ?>
 
 
       <select name="curso" required onchange="buscarTurmapordisciplina();">
         <?php
+        
         while ($row = $result2->fetch_assoc()) {
-          echo "<option value='" . $row['id_turma'] . "'>" . $row['nome_turma'] . " - " . $row['ano'] . "</option>";
+          if ($curso == $row['id_turma']){
+              echo "<option value='" . $row['id_turma'] . "'"." selected ".">" . $row['nome_turma'] . " - " . $row['ano'] . "</option>";
+          }
+          else
+              echo "<option value='" . $row['id_turma'] . "'>" . $row['nome_turma'] . " - " . $row['ano'] . "</option>";
         }
         ?>
 
