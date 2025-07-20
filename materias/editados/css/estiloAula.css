@@ -1,46 +1,76 @@
 body {
-  display: flex;
-  justify-content: center;
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  padding: 20px;
-}
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 700px;
+      margin: 30px auto;
+      background-color: #ccc;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background-color: #ccc;
+    }
+    label {
+      font-weight: bold;
+    }
+    select, input[type="text"], button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+    button{
+      padding: 10px;
+      background-color:  #00a513;
+      border-radius: 5px;
+      width: 100%;
+      color: white;
+    }
+    .row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    .row > div {
+      flex: 1;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    .buttons button {
+      flex: 1;
+      margin: 0 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .buttons button:hover {
+      background-color: #0056b3;
+    }
+    .day{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      height: 50px;
+    }
 
-.h {
-  background: #c5c2c2;
-  padding: 25px;
-  border-radius: 10px;
-  width: 400px;
-  margin: auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.d {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-form {
-  max-width: 400px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-label {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="time"] {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  box-sizing: border-box;
-}
+    .kekday{
+      display: flex;
+      flex-direction: column;
+      height: 20px;
+    }

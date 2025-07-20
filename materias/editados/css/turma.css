@@ -1,103 +1,131 @@
-.corpo {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    height: 420px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
+:root {
+      --primaria: #4169E1; /* azul royal */
+      --secundaria: #f0f4f4;
+      --texto: #333;
+      --fundo: #fff;
+      --borda: #ccc;
+    }
 
-form {
-    background-color: #d2d6e0;
-    padding: 20px;
-    border-radius: 10px;
-    width: 98%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
 
-h2 {
-    text-align: center;
-    margin-top: 0;
-}
+    body {
+      background-color: var(--secundaria);
+      color: var(--texto);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
 
-.box {
-    background-color: #edf0f5;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
+    .corpo {
+      background-color: var(--fundo);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+    }
 
-label {
-    display: block;
-    margin: 5px 0;
-    width: 98%;
-}
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
 
-input[type="text"] {
-    width: 100%;
-    padding: 6px;
-    border: 1px solid #999;
-    border-radius: 4px;
-    margin-top: 2px;
-}
+    .esquerda .butal {
+      background-color: #888;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
 
-input[type="radio"] {
-    margin-right: 5px;
-    margin-left: 10px;
-}
+    .esquerda .butal:hover {
+      background-color: #666;
+    }
 
-button[type="button"] {
-    background-color: transparent;
-    color: #333;
-    font-size: 24px;
-    border: 2px dashed #aaa;
-    border-radius: 8px;
-    margin-top: 15px;
-}
+    .direita img {
+      width: 50px;
+      height: 50px;
+    }
 
-button[type="button"]:hover {
-    background-color: #d9d9d9;
-}
-.footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-.botao{
-    width: 400px;
-    height: 50px;
-    background-color: #4144D8;
-    color: white;
-    border: 1px solid #4144D8;
-    border-radius: 5px;
-}
-.container{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-img{
-    width: 50px;
-}
-.esquerda{
-    display: flex;
-    justify-content: left;
-    width: 100%;
-}
-.direita{
-    display: flex;
-    justify-content: right;
-    width: 100%;
-}
-.butal{
-    width: 200px;
-    background-color: #4144D8;
-    border-radius: 5px;
-    border: 3px solid #4144D8;
-    color: white;
-}
-.skibid{
-    display: flex;
-    flex-direction: row;
-}
+    form {
+      width: 100%;
+    }
+
+    h2 {
+      color: var(--primaria);
+      text-align: center;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--borda);
+      margin-top: 6px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--primaria);
+      outline: none;
+    }
+
+    .skibid label {
+      font-weight: 500;
+      margin-right: 15px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .skibid input[type="radio"] {
+      margin-right: 6px;
+      cursor: pointer;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .botao {
+      flex: 1;
+      background-color: var(--primaria);
+      border: none;
+      color: white;
+      padding: 12px 0;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .botao:hover {
+      background-color: #2a4fb8;
+    }

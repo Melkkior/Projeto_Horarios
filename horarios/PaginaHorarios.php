@@ -7,7 +7,7 @@ $banco = "ifam";
 
 
 $day = date('l');
-
+$dayn;
 switch ($day) {
   case "Monday":
 
@@ -28,6 +28,9 @@ switch ($day) {
   case "Friday":
 
     $dayn = "sexta";
+    break;
+  default:
+    $dayn = "";
     break;
   
 }
