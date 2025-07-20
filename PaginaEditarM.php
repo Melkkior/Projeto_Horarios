@@ -275,7 +275,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </div>
     <div class="caixa">
-      <div><H2>CADASTRAR</H2></div>
+      <div><H2>ALTERAR (em construção)</H2></div>
       <div>
         <button class="botao">CURSO</button>
         <button class="botao">DISCIPLINA</button>
